@@ -1,0 +1,11 @@
+.row {
+    @include grid(row, gutter-x);
+
+    &__6 {
+        @include cell(6);
+    }
+
+    &__3 {
+        @include cell(3);
+    }
+}

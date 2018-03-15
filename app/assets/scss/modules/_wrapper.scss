@@ -1,0 +1,8 @@
+.wrapper {
+    max-width: rem(1140);
+    @include m--auto;
+
+    &--b-margin {
+        margin-bottom: rem(80);
+    }
+}

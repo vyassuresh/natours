@@ -1,0 +1,47 @@
+@mixin trans($time: 0.3s) {
+    transition: all #{$time}s ease-in-out;
+}
+
+@mixin m--auto {
+    margin: 0 auto;
+}
+
+@mixin m-vert($top, $bottom) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin m-horz($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin p-vert($top, $bottom) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin p-horz($left, $right) {
+    padding-left: $left;
+    padding-right: $right;
+}
+
+@mixin center($pos) {
+    position: absolute;
+
+    @if $pos == 'vert' {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @else if $pos == 'horz' {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @else if $pos == 'both' {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

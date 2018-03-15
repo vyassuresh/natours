@@ -1,0 +1,180 @@
+/* Features :-
+
+    row-grid (optional gutter)
+        - forced full-height
+        - row-reverse
+        - vertical align all
+        - horizontzal align all
+        - row-reverse
+
+    column-grid
+        - column-reverse
+        - vertical align
+        - horizontzal align
+        - column-reverse
+
+    cell
+        - width or height
+        - offset
+        - vertical align self
+        - cover rest of the space
+
+*/
+
+/* ================================== */
+/* Grid container properties */
+/* ================================== */
+
+@mixin grid($direction: 'row', $gutter: "nothing") {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    > * {
+        flex: 1 1 0%;
+        box-sizing: border-box;
+    }
+
+    @if $direction=='row' {
+        flex-direction: row;
+    }
+
+    @else if $direction=='column' {
+        flex-direction: column;
+    }
+
+    @if $gutter=='gutter-x' {
+
+        > *:not(:first-child) {
+            margin-left: $gutter-x;
+        }
+    }
+
+    @else if $gutter=='gutter-y' {
+        > * {
+            margin-bottom: $gutter-y;
+        }
+    }
+
+    @else if $gutter=='gutter-x-y' {
+
+        > *:not(:last-child) {
+            margin-right: $gutter-x;
+            margin-bottom: $gutter-y;
+
+
+        }
+    }
+}
+
+@mixin column-grid {
+    flex-direction: column;
+}
+
+@mixin full-height {
+    align-items: stretch !important;
+}
+
+@mixin row-reverse($gutter: 'no') {
+    flex-direction: row-reverse;
+}
+
+@mixin col-reverse {
+    flex-direction: column-reverse;
+}
+
+// === Grid Vertical alignment ===
+@mixin v-align($align) {
+
+    @if $align=='top' {
+        align-items: flex-start;
+    }
+
+    @else if $align=='middle' {
+        align-items: center;
+    }
+
+    @else if $align=='bottom' {
+        align-items: flex-end;
+    }
+}
+
+/* ================================== */
+/* Cell Properties */
+/* ================================== */
+
+@mixin cell($num) {
+    flex: none;
+    $gutter-to-add: ($num - 1) * $gutter-x;
+    $columns-1: $columns - 1;
+
+    width:  calc((#{$num} * (100% - (#{$columns-1} * #{$gutter-x})) / #{$columns} ) + #{$gutter-to-add});
+}
+
+// width: calc(3 * (100% - 11 * #{$gutter-horizontal}) / 12 ) + 2 * #{$gutter-horizontal};
+
+@mixin auto-width {
+    flex-grow: 1;
+}
+
+@mixin cover-rest($position) {
+
+    @if $position='right' {
+        margin-right: auto;
+    }
+
+    @else if $position='left' {
+        margin-left: auto;
+    }
+
+    @else if $position='right' {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@mixin offset($num) {
+    margin-left: (100 / $columns*$num)+ %;
+}
+
+// === Grid cell Vertical alignment ===
+@mixin cell-v-align($align) {
+
+    @if $align=='top' {
+        align-self: flex-start;
+    }
+
+    @else if $align=='middle' {
+        align-self: center;
+    }
+
+    @else if $align=='bottom' {
+        align-self: flex-end;
+    }
+}
+
+// === Grid cell Horizontal alignment ===
+@mixin h-align($align) {
+    @if $align=='left' {
+        justify-content: flex-start
+    }
+
+    @else if $align=='right' {
+        justify-content: flex-end
+    }
+
+    @else if $align=='center' {
+        justify-content: center
+    }
+
+    @else if $align=='space-around' {
+        justify-content: space-around
+    }
+
+    @else if $align=='space-between' {
+        justify-content: space-between
+    }
+}
