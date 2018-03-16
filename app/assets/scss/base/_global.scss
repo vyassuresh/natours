@@ -23,3 +23,19 @@ body {
 h1 {
     margin: 0;
 }
+
+::-webkit-input-placeholder {
+    color: $grayDark;
+}
+
+::-moz-placeholder {
+    color: $grayDark;
+}
+
+:-ms-input-placeholder {
+    color: $grayDark;
+}
+
+:-moz-placeholder {
+    color: $grayDark;
+}

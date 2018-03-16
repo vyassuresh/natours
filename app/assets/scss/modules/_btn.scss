@@ -1,5 +1,6 @@
 .btn {
 
+    &,
     &:link,
     &:visited {
         text-decoration: none;
@@ -8,6 +9,10 @@
         font-size: rem(16px);
         border-radius: 100px;
         @include trans(.2);
+
+        // Changes for <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -15,7 +20,9 @@
         box-shadow: 0 rem(10px) rem(20px) rgba(#000, 0.2);
     }
 
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 rem(5px) rem(10px) rgba(#000, 0.2);
     }

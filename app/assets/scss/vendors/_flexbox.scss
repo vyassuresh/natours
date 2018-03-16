@@ -22,7 +22,9 @@
 */
 
 /* ================================== */
+
 /* Grid container properties */
+
 /* ================================== */
 
 @mixin grid($direction: 'row', $gutter: "nothing") {
@@ -32,11 +34,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    > * {
-        flex: 1 1 0%;
-        box-sizing: border-box;
-    }
 
     @if $direction=='row' {
         flex-direction: row;
@@ -106,16 +103,20 @@
 /* Cell Properties */
 /* ================================== */
 
+@mixin cell {
+    flex: 1 1 0%;
+    box-sizing: border-box;
+}
+
 @mixin cell($num) {
     flex: none;
     $gutter-to-add: ($num - 1) * $gutter-x;
     $columns-1: $columns - 1;
 
-    width:  calc((#{$num} * (100% - (#{$columns-1} * #{$gutter-x})) / #{$columns} ) + #{$gutter-to-add});
+    width : calc((#{$num} * (100% - (#{$columns-1} * #{$gutter-x})) / #{$columns}) + #{$gutter-to-add});
 }
 
 // width: calc(3 * (100% - 11 * #{$gutter-horizontal}) / 12 ) + 2 * #{$gutter-horizontal};
-
 @mixin auto-width {
     flex-grow: 1;
 }
