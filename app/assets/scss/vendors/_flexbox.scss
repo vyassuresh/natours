@@ -34,6 +34,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100%;
 
     @if $direction=='row' {
         flex-direction: row;
@@ -59,11 +60,22 @@
     @else if $gutter=='gutter-x-y' {
 
         > *:not(:last-child) {
-            margin-right: $gutter-x;
+            margin-left: $gutter-x;
             margin-bottom: $gutter-y;
-
-
         }
+    }
+}
+
+@mixin no-gutters {
+    > *:not(:first-child) {
+            margin-left: 0;
+            margin-bottom: 0;
+        }
+}
+
+@mixin grow {
+    & > * {
+        flex: 1 1 0%;
     }
 }
 
@@ -100,7 +112,9 @@
 }
 
 /* ================================== */
+
 /* Cell Properties */
+
 /* ================================== */
 
 @mixin cell {
@@ -108,12 +122,19 @@
     box-sizing: border-box;
 }
 
-@mixin cell($num) {
+@mixin cell($num, $gutter: 'none') {
     flex: none;
-    $gutter-to-add: ($num - 1) * $gutter-x;
-    $columns-1: $columns - 1;
 
-    width : calc((#{$num} * (100% - (#{$columns-1} * #{$gutter-x})) / #{$columns}) + #{$gutter-to-add});
+    @if $gutter == 'no-gutter' {
+        width: calc(#{$num} * (100% / #{$columns}));
+    }
+
+    @else {
+        $gutter-to-add: ($num - 1) * $gutter-x;
+        $columns-1: $columns - 1;
+
+        width: calc((#{$num} * (100% - (#{$columns-1} * #{$gutter-x})) / #{$columns}) + #{$gutter-to-add});
+    }
 }
 
 // width: calc(3 * (100% - 11 * #{$gutter-horizontal}) / 12 ) + 2 * #{$gutter-horizontal};
