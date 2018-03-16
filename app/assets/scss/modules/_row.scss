@@ -1,6 +1,14 @@
 .row {
     @include grid(row, gutter-x);
 
+    &.no-gutters {
+        @include no-gutters;
+
+        & > .row__4 {
+            @include cell(4, no-gutter);
+        }
+    }
+
     &__6 {
         @include cell(6);
     }
@@ -11,5 +19,15 @@
 
     &__4 {
         @include cell(4);
+    }
+
+
+
+    &__5 {
+        @include cell(5);
+    }
+
+    &__8 {
+        @include cell(8, no-gutter);
     }
 }
