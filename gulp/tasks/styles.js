@@ -6,15 +6,21 @@ postcssImport = require('postcss-import'),
 autoprefixer = require('autoprefixer'),
 size = require('postcss-size'),
 fixes = require('postcss-fixes'),
-cssnano = require('cssnano');
+cssnano = require('cssnano'),
+rucksack = require('rucksack-css'),
+postcssUnits = require('postcss-units'),
+postcssCenter = require('postcss-center');
 
 gulp.task('styles', function () {
 	var processors = [
-		autoprefixer,
+        postcssUnits({ size: 16 }),
 		mqpacker,
 		postcssImport,
 		size,
-		fixes
+        rucksack(),
+        postcssCenter,
+        autoprefixer,
+        fixes
 	];
 	return gulp.src('./app/assets/scss/style.scss')
 		.pipe(sass().on('error', sass.logError))

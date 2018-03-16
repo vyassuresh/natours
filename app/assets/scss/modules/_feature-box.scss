@@ -5,7 +5,7 @@
     padding: rem(25);
     border-radius: 3px;
     text-align: center;
-    box-shadow: 0 rem(15) rem(40) rgba($black, 0.15);
+    box-shadow: $default-box-shadow;
     @include trans(0.2);
 
     &:hover {

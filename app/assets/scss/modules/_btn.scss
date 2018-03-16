@@ -48,6 +48,17 @@
         }
     }
 
+    &--green {
+        background-color: $midGreen;
+        color: $white;
+        padding: rem(15px) rem(40px);
+        display: inline-block;
+
+        &:after {
+            background-color: $midGreen;
+        }
+    }
+
     &--animated {
         animation: fadeInBottom 0.5s ease-in-out 0.75s backwards;
     }
@@ -59,7 +70,7 @@
         display: inline-block;
         text-decoration: none;
         border-bottom: 1px solid $midGreen;
-        padding: 3px;
+        padding: 3px 5px;
         @include trans(0.3);
     }
 

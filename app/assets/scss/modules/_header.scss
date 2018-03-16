@@ -9,9 +9,7 @@
 
 
     &__logo {
-        position: absolute;
-        top: rem(40px);
-        left: rem(40px);
+        position: absolute rem(40px) 0 0 rem(40px);
 
         &__img {
             height: rem(35px);

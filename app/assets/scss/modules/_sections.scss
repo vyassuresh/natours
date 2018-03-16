@@ -16,3 +16,14 @@
         transform: skewY(7deg);
     }
 }
+
+.section-tours {
+    background-color: $gray-light-1;
+    padding: rem(200) 0 rem(150) 0;
+    margin-top: rem(-100);
+}
+
+.section-stories {
+    padding: rem(150) 0;
+    position: relative
+}

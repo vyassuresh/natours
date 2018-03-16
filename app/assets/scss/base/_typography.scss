@@ -7,6 +7,8 @@
         display: block;
         font-weight: 400;
         font-size: rem(60px);
+//        font-size: responsive rem(37) rem(60px);
+//        font-range: rem(320px) rem(1000px);
         letter-spacing: rem(35px);
         animation: fadeInLeft 1s ease-out;
     }
@@ -50,6 +52,8 @@
 }
 
 .paragraph {
+    font-size: 100%;
+
     &:not(:last-child) {
         margin-bottom: rem(30px);
     }

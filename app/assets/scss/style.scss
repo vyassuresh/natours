@@ -3,9 +3,7 @@
 @import 'vendors/include-media';
 @import 'vendors/flexbox';
 
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-
+@import 'base/mixins';
 @import 'base/global';
 @import 'base/utilities';
 @import 'base/typography';
@@ -18,3 +16,6 @@
 @import 'modules/wrapper';
 @import 'modules/gallery';
 @import 'modules/feature-box';
+@import 'modules/cards';
+@import 'modules/story';
+@import 'modules/bg-video';
