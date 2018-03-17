@@ -3,6 +3,19 @@
     @include m--auto;
 
     &--b-margin {
-        margin-bottom: rem(80);
+        margin-bottom: $gutter-y;
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+        }
+    }
+
+    @include respond(tab-port) {
+        max-width: rem(500);
+        padding: 0 rem(30);
+
+        &:not(:last-child) {
+            margin-bottom: $gutter-y-small;
+        }
     }
 }

@@ -5,3 +5,32 @@
 @mixin m--auto {
     margin: 0 auto;
 }
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint=='phone' {
+        @media (max-width: 600px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='tab-port' {
+        @media (max-width: 900px) {
+            @content;
+        }
+    }
+    @else if $breakpoint=='tab-land' {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $breakpoint=='big-desk' {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    }
+
+
+
+
+}

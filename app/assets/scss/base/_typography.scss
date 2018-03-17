@@ -7,10 +7,13 @@
         display: block;
         font-weight: 400;
         font-size: rem(60px);
-//        font-size: responsive rem(37) rem(60px);
-//        font-range: rem(320px) rem(1000px);
         letter-spacing: rem(35px);
         animation: fadeInLeft 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: rem(14px);
+            font-size: rem(50px);
+        }
     }
 
     &--subtitle {
@@ -20,6 +23,11 @@
         font-size: rem(20px);
         letter-spacing: rem(17.4px);
         animation: fadeInRight 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: rem(5px);
+        }
+
     }
 
     &--b-margin {
@@ -38,6 +46,14 @@
     color: transparent;
     letter-spacing: rem(2);
     @include trans(.2);
+
+    @include respond(tab-port) {
+        font-size: rem(30);
+    }
+
+    @include respond(phone) {
+        font-size: rem(25);
+    }
 
     &:hover {
         transform: skew(15deg, 2deg) scale(1.1);

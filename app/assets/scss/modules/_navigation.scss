@@ -15,6 +15,17 @@
         box-shadow: 0 rem(10) rem(30) rgba($black, .1);
         text-align: center;
         cursor: pointer;
+
+        @include respond(tab-port) {
+            top: rem(40);
+            right: rem(40);
+        }
+
+        @include respond(phone) {
+            top: rem(30);
+            right: rem(30);
+        }
+
     }
 
     &__background {
@@ -26,10 +37,19 @@
         background-image: radial-gradient($lightGreen, $darkGreen);
         z-index: 1000;
         transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+         @include respond(tab-port) {
+            top: rem(45);
+            right: rem(45);
+        }
+
+         @include respond(phone) {
+            top: rem(35);
+            right: rem(35);
+        }
     }
 
     &__nav {
-        height: 100vh;
         position: fixed 0 0;
         z-index: 1500;
         opacity: 0;
@@ -64,6 +84,7 @@
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
             background-size: 250%;
             @include trans(.4);
+            visibility: hidden;
         }
 
         &:hover,
@@ -81,6 +102,10 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+
+        .navigation__link {
+            visibility: visible;
+        }
     }
 
     &__icon {

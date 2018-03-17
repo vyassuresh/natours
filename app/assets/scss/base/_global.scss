@@ -7,8 +7,19 @@
 }
 
 html {
-    // This defines that 1rem = 16px
-    font-size: 100%;
+    font-size: 16px;
+
+    @include respond(big-desk) {
+        font-size: 18px;
+    }
+
+    @include respond(tab-land) {
+        font-size: 15px;
+    }
+
+    @include respond(tab-port) {
+        font-size: 14px;
+    }
 }
 
 body {
@@ -18,6 +29,10 @@ body {
     color: $gray;
     padding: rem(30);
     box-sizing: border-box;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
 
 h1 {

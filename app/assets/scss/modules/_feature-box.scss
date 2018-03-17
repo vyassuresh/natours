@@ -8,6 +8,10 @@
     box-shadow: $default-box-shadow;
     @include trans(0.2);
 
+    @include respond(tab-port) {
+        padding: rem(20);
+    }
+
     &:hover {
         transform: translateY(rem(-15)) scale(1.03);
     }
@@ -19,5 +23,9 @@
         background-image: linear-gradient(to right, $lightGreen, $darkGreen);
         color: transparent;
         -webkit-background-clip: text;
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+        }
     }
 }

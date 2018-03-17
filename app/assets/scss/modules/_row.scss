@@ -7,6 +7,16 @@
         & > .row__4 {
             @include cell(4, no-gutter);
         }
+
+    }
+
+    @include respond(tab-port) {
+
+        & > * {
+            @include cell(12);
+            margin-left: 0 !important;
+            margin-bottom: $gutter-y-small;
+        }
     }
 
     &__6 {
@@ -20,8 +30,6 @@
     &__4 {
         @include cell(4);
     }
-
-
 
     &__5 {
         @include cell(5);

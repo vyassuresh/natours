@@ -25,5 +25,9 @@ gulp.task('styles', function () {
 	return gulp.src('./app/assets/scss/style.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(processors))
+        .on('error', function(errorInfo) {
+            console.log(errorInfo.toString());
+            this.emit('end');
+        })
 		.pipe(gulp.dest('./app/assets/css'));
 });

@@ -10,19 +10,45 @@
         @include trans(0.2);
         outline-offset: rem(20);
 
+        @include respond(tab-port) {
+            float: left;
+            position: relative;
+            width: 33.33%;
+
+        box-shadow: 0 rem(15) rem(30) rgba($black, 0.2);
+        }
+
         &--p1 {
             left: 0;
             top: rem(-20);
+
+            @include respond(tab-port) {
+                top: rem(0);
+                transform: scale(1.2);
+            }
         }
 
         &--p2 {
             right: rem(20);
             top: rem(20);
+
+            @include respond(tab-port) {
+                top: rem(-1);
+                right: 0;
+                transform: scale(1.3);
+                z-index: 4;
+            }
         }
 
         &--p3 {
             left: 20%;
             top: rem(100);
+
+            @include respond(tab-port) {
+                top: rem(1);
+                left: 0;
+                transform: scale(1.1);
+            }
         }
 
         &:hover {

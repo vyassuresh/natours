@@ -29,10 +29,24 @@
         transition: all .4s .2s;
     }
 
-    &__images img {
-        width: 100%;
-        display: block;
-        backface-visibility: hidden;
+    &__images {
+        height: 100%;
+
+        &--img-1 {
+            background-image: url('../images/nat-8.jpg');
+            background-size: cover;
+            height: 50%;
+            width: 100%;
+            display: block;
+        }
+
+        &--img-2 {
+            background-image: url('../images/nat-9.jpg');
+            background-size: cover;
+            height: 50%;
+            width: 100%;
+            display: block;
+        }
     }
 
     &__text-content {

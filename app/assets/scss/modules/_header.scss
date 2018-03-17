@@ -7,9 +7,15 @@
     clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
     position: relative;
 
+    @include respond(phone) {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 85vh, 0% 100%);
+    }
+
 
     &__logo {
-        position: absolute rem(40px) 0 0 rem(40px);
+        position: absolute;
+        top: rem(40px);
+        left: rem(40px);
 
         &__img {
             height: rem(35px);
@@ -22,5 +28,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+
+        @include respond(tab-port) {
+            top: 50%;
+        }
     }
 }
